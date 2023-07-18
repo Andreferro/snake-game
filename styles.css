@@ -1,0 +1,79 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#container {
+  height: 500px;
+  width: 500px;
+  position: relative;
+}
+
+#grid {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.grid-item[data-rotate="0"]:before {
+  transform: rotate(0deg);
+}
+
+.grid-item[data-rotate="90"]:before {
+  transform: rotate(90deg);
+}
+
+.grid-item[data-rotate="180"]:before {
+  transform: rotate(180deg);
+}
+
+.grid-item[data-rotate="270"]:before {
+  transform: rotate(270deg);
+}
+
+.grid-item[data-type]:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.grid-item[data-type="head"]:before {
+  background-image: url('./assets/head.svg');
+}
+
+.grid-item[data-type="body"]:before {
+  background-image: url('./assets/body.svg');
+}
+
+.grid-item[data-type="curve"]:before {
+  background-image: url('./assets/curve.svg');
+}
+
+.grid-item[data-type="tail"]:before {
+  background-image: url('./assets/tail.svg');
+}
+
+.grid-item {
+  position: absolute;
+  border: 0.1px solid black;
+}
+
+#start-menu {
+  position: absolute;
+  background-color: skyblue;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
