@@ -6,8 +6,8 @@ function moveBackground(e) {
   const bgY = y * 0.005;
 
   const bgElement = document.getElementById('container');
-  bgElement.style.setProperty("--position-x", (bgX + 50) + "%");
-  bgElement.style.setProperty("--position-y", (bgY + 50) + "%");
+  bgElement.style.setProperty('--position-x', (bgX + 50) + '%');
+  bgElement.style.setProperty('--position-y', (bgY + 50) + '%');
 }
 
 window.addEventListener('mousemove', function (e) {
