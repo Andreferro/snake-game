@@ -2,16 +2,20 @@ var startMenu = document.getElementById('start-menu');
 var continueOption = document.getElementById('continue');
 var gridElement = document.getElementById('grid');
 var gameElement = document.getElementById('game');
+var scoreElement = document.getElementById('score');
+var timeElement = document.getElementById('time');
 
 var player = null;
 var food = null;
+var score = 0;
+var time = 0;
 
 var lastKeyPressed = null;
 var grid = [];
 
 var interval = null;
 var intervalClock = 100;
-var multiplier = 10;
+var multiplier = 5;
 var multiplierRemainder = 100 % multiplier;
 var gameOver = false;
 var isPlaying = false;
@@ -172,6 +176,23 @@ function clear() {
   }
 }
 
+function updateElement(type) {
+  var el = document.getElementById(type);
+  switch (type) {
+    case 'time':
+      const seconds = String(parseInt(time / 1000)).padStart(2, '0');
+      const minutes = String(parseInt(time / 60000)).padStart(2, '0');
+      el.innerText = minutes + ":" + seconds;
+      break;
+    case 'score':
+      el.innerText = String(score).padStart(3, '0');
+      break;
+
+    default:
+      break;
+  }
+}
+
 function renderItem(item) {
   const newElement = document.createElement('div');
   newElement.style.left = item.coords.x;
@@ -190,6 +211,8 @@ function checkColision() {
 
 function render() {
   isPlaying = true;
+  time += intervalClock;
+  updateElement('time');
   clear();
   moveSnake();
   checkColision();
@@ -205,7 +228,9 @@ function render() {
   if (food) {
     if (player.head.x === food.coords.x && player.head.y === food.coords.y) {
       player.grow();
+      score += 5;
       food = null;
+      updateElement('score');
     }
   }
 
@@ -238,6 +263,8 @@ function start() {
   clear();
   player = new Snake();
   food = new Item('food');
+  score = 0;
+  time = 0;
 
   interval = setInterval(render, intervalClock);
   toggleMenu(true);
@@ -250,7 +277,7 @@ function continueGame() {
 
 function toggleMenu(showMenu) {
   if (showMenu) {
-    gameElement.style.display = "block";
+    gameElement.style.display = "flex";
     startMenu.style.display = "none";
     continueOption.style.display = "none";
   } else if (gameOver) {
