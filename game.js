@@ -265,6 +265,8 @@ function start() {
   food = new Item('food');
   score = 0;
   time = 0;
+  updateElement('time');
+  updateElement('score');
 
   interval = setInterval(render, intervalClock);
   toggleMenu(true);
