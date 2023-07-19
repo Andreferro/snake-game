@@ -11,12 +11,22 @@
 <body>
   <div id="container">
     <div id="start-menu">
-      <button onclick="start()">Start game</button>
-      <button onclick="continueGame()" style="display: none;" id="continue">Continue</button>
+      <div>
+        <h1>Snake</h1>
+        <button onclick="start()" type="button">
+          Start game
+        </button>
+        <button onclick="continueGame()" style="display: none;" id="continue" type="button">
+          Continue
+        </button>
+      </div>
     </div>
-    <div id="grid"></div>
+    <div id="game">
+      <div id="grid"></div>
+    </div>
   </div>
-  <script src="scripts.js"></script>
+  <script src="game.js"></script>
+  <script src="menu.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
-var container = document.getElementById('container');
 var startMenu = document.getElementById('start-menu');
 var continueOption = document.getElementById('continue');
 var gridElement = document.getElementById('grid');
+var gameElement = document.getElementById('game');
 
 var player = null;
 var food = null;
@@ -10,10 +10,11 @@ var lastKeyPressed = null;
 var grid = [];
 
 var interval = null;
-var intervalClock = 200;
-var multiplier = 5; // max: 10
+var intervalClock = 100;
+var multiplier = 10;
 var multiplierRemainder = 100 % multiplier;
 var gameOver = false;
+var isPlaying = false;
 
 function getDirection(current, next) {
   if (current.x > next.x) {
@@ -50,12 +51,7 @@ class Item {
 
 class Snake {
   head = { x: multiplier, y: 0, direction: 'right' };
-  tail = [];
-  // tail = [
-  //   { x: number, y: number, next: { x: number, y: number } },
-  //   { x: number, y: number, next: { x: number, y: number } },
-  // ];
-  // direction = 'right';
+  tail = [{ x: 0, y: 0, next: { x: multiplier, y: 0 }, direction: 'right' }];
 
   move(dir) {
     if (dir === 'left' && this.head.direction !== 'right') this.head.direction = dir;
@@ -168,9 +164,10 @@ function moveSnake() {
 function clear() {
   for (let x = 0; x < 100; x += multiplier) {
     for (let y = 0; y < 100; y += multiplier) {
-      delete grid['x' + x + 'y' + y].dataset.type;
-      delete grid['x' + x + 'y' + y].dataset.rotate;
-      grid['x' + x + 'y' + y].style.backgroundColor = 'transparent';
+      if (grid['x' + x + 'y' + y].dataset.type) {
+        delete grid['x' + x + 'y' + y].dataset.type;
+        delete grid['x' + x + 'y' + y].dataset.rotate;
+      }
     }
   }
 }
@@ -179,7 +176,8 @@ function renderItem(item) {
   const newElement = document.createElement('div');
   newElement.style.left = item.coords.x;
   newElement.style.top = item.coords.y;
-  grid['x' + item.coords.x + 'y' + item.coords.y].style.backgroundColor = 'red';
+  const gridCoords = 'x' + item.coords.x + 'y' + item.coords.y;
+  grid[gridCoords].dataset.type = 'food';
 }
 
 function checkColision() {
@@ -191,20 +189,18 @@ function checkColision() {
 }
 
 function render() {
+  isPlaying = true;
   clear();
   moveSnake();
   checkColision();
 
   if (gameOver) {
     clearInterval(interval);
-    startMenu.style.display = "block";
+    toggleMenu();
     gameOver = false;
+    isPlaying = false;
     return;
   }
-
-  // // TO DELETE
-  // clearInterval(interval);
-  // return;
 
   if (food) {
     if (player.head.x === food.coords.x && player.head.y === food.coords.y) {
@@ -232,8 +228,8 @@ function render() {
 
     if (e.key === 'Escape') {
       clearInterval(interval);
-      startMenu.style.display = "block";
-      continueOption.style.display = "block";
+      isPlaying = false;
+      toggleMenu();
     }
   });
 }
@@ -243,15 +239,29 @@ function start() {
   player = new Snake();
   food = new Item('food');
 
-  startMenu.style.display = "none";
-  continueOption.style.display = "none";
   interval = setInterval(render, intervalClock);
+  toggleMenu(true);
 }
 
 function continueGame() {
-  startMenu.style.display = "none";
-  continueOption.style.display = "none";
   interval = setInterval(render, intervalClock);
+  toggleMenu(true);
+}
+
+function toggleMenu(showMenu) {
+  if (showMenu) {
+    gameElement.style.display = "block";
+    startMenu.style.display = "none";
+    continueOption.style.display = "none";
+  } else if (gameOver) {
+    gameElement.style.display = "none";
+    startMenu.style.display = "flex";
+    continueOption.style.display = "none";
+  } else {
+    gameElement.style.display = "none";
+    startMenu.style.display = "flex";
+    continueOption.style.display = "block";
+  }
 }
 
 (function () {

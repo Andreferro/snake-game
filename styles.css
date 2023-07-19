@@ -1,26 +1,75 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --position-x: 50%;
+  --position-y: 50%;
+}
+
+body, html {
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  overflow: hidden;
 }
 
 #container {
-  height: 500px;
-  width: 500px;
   position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+#container::before {
+  content: '';
+  position: absolute;
+  background-image: url(./assets/bg-lines.svg);
+  background-repeat: no-repeat;
+  background-size: 200vw 200vh;
+  background-position-x: var(--position-x, 50%);
+  background-position-y: var(--position-y, 50%);
+  background-blend-mode: darken;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+#game {
+  display: none;
 }
 
 #grid {
-  height: 100%;
-  width: 100%;
   position: relative;
+  z-index: 2;
+  border: 0.1px solid black;
+  background-color: sandybrown;
+  margin: auto;
+}
+
+@media (max-width: 480px) {
+  #grid {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #grid {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (min-width: 769px) {
+  #grid {
+    height: 500px;
+    width: 500px;
+  }
 }
 
 .grid-item[data-rotate="0"]:before {
@@ -65,15 +114,55 @@ body {
   background-image: url('./assets/tail.svg');
 }
 
+.grid-item[data-type="food"]:before {
+  background-image: url('./assets/apple.svg');
+}
+
 .grid-item {
   position: absolute;
-  border: 0.1px solid black;
+  /* border: 0.1px solid black; */
 }
 
 #start-menu {
-  position: absolute;
-  background-color: skyblue;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: 100%;
   width: 100%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#start-menu div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: bold;
+  color: white;
+  font-size: 5rem;
+}
+
+button {
+  border: none;
+  background-color: hsl(41, 89%, 52%);
+  box-shadow: 0px 0px 5px rgb(68, 68, 68);
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(41, 100%, 50%);
 }
