@@ -2,6 +2,7 @@ class Item {
   type = ''; // Food or treasure
   points = 0;
   coords = { x: 0, y: 0 };
+  timer = null; // Treasures only appear for a certain time
 
   constructor(t) {
     this.type = t;
@@ -11,6 +12,7 @@ class Item {
         break;
       case 'treasure':
         this.points = 10;
+        this.timer = 5000;
         break;
     
       default:

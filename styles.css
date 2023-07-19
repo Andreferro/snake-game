@@ -147,6 +147,10 @@ body {
   background-image: url('./assets/apple.svg');
 }
 
+.grid-item[data-type="treasure"]:before {
+  background-image: url('./assets/treasure.svg');
+}
+
 .grid-item {
   position: absolute;
   /* border: 0.1px solid black; */

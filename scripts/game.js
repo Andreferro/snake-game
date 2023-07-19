@@ -5,6 +5,7 @@ var gameElement = document.getElementById('game');
 
 var player = null;
 var food = null;
+var treasure = null;
 var score = 0;
 var time = 0;
 
@@ -74,7 +75,11 @@ function updateElement(type) {
 function renderItem(item) {
   const gridCoords = 'x' + item.coords.x + 'y' + item.coords.y;
   if (grid[gridCoords].dataset.type) {
-    food = null;
+    if (item.type === 'food') {
+      food = null;
+    } else if (item.type === 'treasure') {
+      treasure = null;
+    }
     return;
   }
   const newElement = document.createElement('div');
@@ -113,11 +118,28 @@ function render() {
     }
   }
 
+  if (treasure) {
+    if (player.head.x === treasure.coords.x && player.head.y === treasure.coords.y) {
+      score += 10;
+      treasure = null;
+      updateElement('score');
+    } else if (treasure.timer !== 0) {
+      treasure.timer -= intervalClock;
+    } else {
+      treasure = null;
+    }
+  }
+
   if (!food) {
     food = new Item('food');
   }
 
+  if (!treasure && time > 1000 && (parseInt(time / 1000) % 10) === 0) {
+    treasure = new Item('treasure');
+  }
+
   renderItem(food);
+  if (treasure) renderItem(treasure);
 
   window.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowDown' || e.key === 's') {
