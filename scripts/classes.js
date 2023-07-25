@@ -1,29 +1,23 @@
 class Item {
-  type = ''; // Food or treasure
-  points = 0;
   coords = { x: 0, y: 0 };
-  timer = null; // Treasures only appear for a certain time
 
   constructor(t) {
-    this.type = t;
-    switch (t) {
-      case 'food':
-        this.points = 5;
-        break;
-      case 'treasure':
-        this.points = 10;
-        this.timer = 5000;
-        break;
-    
-      default:
-        this.points = 5;
-        break;
-    }
     this.coords = {
       x: Math.floor(Math.random() * 100 / multiplier) * multiplier,
       y: Math.floor(Math.random() * 100 / multiplier) * multiplier,
     };
   }
+}
+
+class Food extends Item {
+  type = 'food';
+  points = 5;
+}
+
+class Treasure extends Item {
+  type = 'treasure';
+  points = 10;
+  timer = 5000;
 }
 
 class Snake {

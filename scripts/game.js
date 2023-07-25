@@ -131,11 +131,11 @@ function render() {
   }
 
   if (!food) {
-    food = new Item('food');
+    food = new Food();
   }
 
   if (!treasure && time > 1000 && (parseInt(time / 1000) % 10) === 0) {
-    treasure = new Item('treasure');
+    treasure = new Treasure();
   }
 
   renderItem(food);
@@ -163,7 +163,7 @@ function render() {
 function start() {
   clear();
   player = new Snake();
-  food = new Item('food');
+  food = new Food();
   score = 0;
   time = 0;
   updateElement('time');
