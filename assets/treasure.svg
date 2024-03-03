@@ -1,50 +1,7 @@
-<svg width="857" height="515" viewBox="0 0 857 515" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_i_30_98)">
-<path d="M51.6447 147.037C40.3806 85.6093 87.5531 29 150.005 29H706.933C769.071 29 816.165 85.0727 805.43 146.276L751.519 453.638C747.324 477.555 726.552 495 702.27 495H157.117C132.981 495 112.29 477.758 107.937 454.018L51.6447 147.037Z" fill="#B78D22"/>
-</g>
-<g filter="url(#filter1_di_30_98)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M489 20H529V176H650V20H690V176H805V213H448V215.102C472.969 223.294 491 246.791 491 274.5C491 302.209 472.969 325.706 448 333.898V495H408V333.56C383.551 325.075 366 301.837 366 274.5C366 247.163 383.551 223.925 408 215.44V213H52V176H167V29H207V176H328V29H368V176H489V20Z" fill="#C9C9C9"/>
-</g>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M433 246H423V275.797C416.612 277.896 412 283.91 412 291C412 299.837 419.163 307 428 307C436.837 307 444 299.837 444 291C444 283.91 439.388 277.896 433 275.797V246Z" fill="#505050"/>
-<g filter="url(#filter2_i_30_98)">
-<path d="M119.737 26H738.188C787.209 26 824.396 70.1822 816.029 118.484L755.491 467.95C753.083 481.849 741.023 492 726.917 492H133.758C119.735 492 107.721 481.966 105.222 468.168L42.0014 119.078C33.222 70.6005 70.4707 26 119.737 26Z" stroke="#C9C9C9" stroke-width="42"/>
-</g>
-<defs>
-<filter id="filter0_i_30_98" x="49.9753" y="-11" width="756.985" height="506" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="-40"/>
-<feGaussianBlur stdDeviation="20"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_30_98"/>
-</filter>
-<filter id="filter1_di_30_98" x="32" y="0" width="793" height="515" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="10"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_30_98"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_30_98" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="5"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="shape" result="effect2_innerShadow_30_98"/>
-</filter>
-<filter id="filter2_i_30_98" x="19.7083" y="0" width="818.506" height="513" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="-5"/>
-<feGaussianBlur stdDeviation="10"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_30_98"/>
-</filter>
-</defs>
+<svg width="275" height="275" viewBox="0 0 275 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="68" width="70" height="70" fill="#D9D9D9"/>
+<rect x="136" y="70" width="70" height="70" fill="#D9D9D9"/>
+<rect y="70" width="70" height="70" fill="#D9D9D9"/>
+<rect y="138" width="275" height="70" fill="#D9D9D9"/>
+<rect x="67" y="205" width="138" height="70" fill="#D9D9D9"/>
 </svg>

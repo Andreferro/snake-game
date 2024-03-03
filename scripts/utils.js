@@ -42,11 +42,11 @@ function getImgDirection(current, next) {
     return 'right';
   }
   if (current.y < next.y) {
-    if (current.y === 0 && next.y === (100 - multiplier)) return 'up';
+    if (current.y === 0 && next.y === (gridHeight - multiplier)) return 'up';
     return 'down';
   }
   if (current.y > next.y) {
-    if (next.y === 0 && current.y === (100 - multiplier)) return 'down';
+    if (next.y === 0 && current.y === (gridHeight - multiplier)) return 'down';
     return 'up';
   }
   return 'right';

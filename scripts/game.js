@@ -3,6 +3,9 @@ var continueOption = document.getElementById('continue');
 var gridElement = document.getElementById('grid');
 var gameElement = document.getElementById('game');
 
+var gridWidth = 100;
+var gridHeight = 75;
+
 var player = null;
 var food = null;
 var treasure = null;
@@ -45,8 +48,8 @@ function moveSnake() {
 }
 
 function clear() {
-  for (let x = 0; x < 100; x += multiplier) {
-    for (let y = 0; y < 100; y += multiplier) {
+  for (let x = 0; x < gridWidth; x += multiplier) {
+    for (let y = 0; y < gridHeight; y += multiplier) {
       if (grid['x' + x + 'y' + y].dataset.type) {
         delete grid['x' + x + 'y' + y].dataset.type;
         delete grid['x' + x + 'y' + y].dataset.rotate;
@@ -180,7 +183,7 @@ function continueGame() {
 
 function toggleMenu(showMenu) {
   if (showMenu) {
-    gameElement.style.display = 'flex';
+    gameElement.style.display = 'grid';
     startMenu.style.display = 'none';
     continueOption.style.display = 'none';
   } else if (gameOver) {
@@ -195,14 +198,14 @@ function toggleMenu(showMenu) {
 }
 
 (function () {
-  for (let x = 0; x < 100; x += multiplier) {
-    for (let y = 0; y < 100; y += multiplier) {
+  for (let y = 0; y < gridHeight; y += multiplier) {
+    for (let x = 0; x < gridWidth; x += multiplier) {
       const gridItem = document.createElement('div');
       gridItem.setAttribute('class', 'grid-item');
-      gridItem.style.height = multiplier + '%';
-      gridItem.style.width = multiplier + '%';
-      gridItem.style.top = y + '%';
-      gridItem.style.left = x + '%';
+      // gridItem.style.width = multiplier + '%';
+      // gridItem.style.height = multiplier + '%';
+      // gridItem.style.left = x + '%';
+      // gridItem.style.top = y + '%';
       grid['x' + x + 'y' + y] = gridItem;
       gridElement.appendChild(gridItem);
     }

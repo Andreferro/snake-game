@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
   <title>Snake game</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -14,25 +17,21 @@
       <div>
         <h1>Snake</h1>
         <button onclick="start()" type="button">
-          Start game
+          START GAME
         </button>
         <button onclick="continueGame()" style="display: none;" id="continue" type="button">
-          Continue
+          CONTINUE
         </button>
       </div>
     </div>
     <div id="game">
       <div class="game-info">
-        <div>
-          <span id="score">000</span>
-          Score
-        </div>
-        <div>
-          <span id="time">00:00</span>
-          Time
-        </div>
+        <div id="score">000</div>
+        <div id="time">00:00</div>
       </div>
-      <div id="grid"></div>
+      <div class="glass">
+        <div id="grid"></div>
+      </div>
     </div>
   </div>
   <script src="scripts/utils.js"></script>
