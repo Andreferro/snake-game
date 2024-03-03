@@ -59,7 +59,7 @@ body {
   background-repeat: no-repeat;
   background-blend-mode: darken;
   filter: drop-shadow(5px 0px 10px rgb(0 0 0 / 0.5)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
-  grid-template-rows: 185px 0px;
+  grid-template-rows: 213px 0px;
   z-index: 10;
 }
 
