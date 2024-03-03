@@ -202,10 +202,6 @@ function toggleMenu(showMenu) {
     for (let x = 0; x < gridWidth; x += multiplier) {
       const gridItem = document.createElement('div');
       gridItem.setAttribute('class', 'grid-item');
-      // gridItem.style.width = multiplier + '%';
-      // gridItem.style.height = multiplier + '%';
-      // gridItem.style.left = x + '%';
-      // gridItem.style.top = y + '%';
       grid['x' + x + 'y' + y] = gridItem;
       gridElement.appendChild(gridItem);
     }

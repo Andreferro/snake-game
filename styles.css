@@ -2,62 +2,26 @@
   font-family: "Micro 5", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-:root {
-  --position-x: 50%;
-  --position-y: 50%;
-}
-
 body, html {
   margin: 0px;
   padding: 0px;
 }
 
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
 #container {
-  position: relative;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-}
-
-#container::before {
-  content: '';
-  position: absolute;
   background-color: #7BA283;
-  /* background-image: url(./assets/bg-lines.svg); */
-  background-repeat: no-repeat;
-  background-size: 200vw 200vh;
-  background-position-x: var(--position-x, 50%);
-  background-position-y: var(--position-y, 50%);
-  background-blend-mode: darken;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
 }
 
 #game {
-  position: relative;
   display: none;
-  flex-direction: column;
-  align-self: center;
-  align-items: center;
   width: 100%;
   height: 100%;
   background-image: url(./assets/phone.svg);
   background-size: 400px auto;
   background-position-x: 50%;
-  background-position-y: 0px;
   background-repeat: no-repeat;
-  background-blend-mode: darken;
   filter: drop-shadow(5px 0px 10px rgb(0 0 0 / 0.5)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   grid-template-rows: 213px 0px;
   z-index: 10;
@@ -83,8 +47,6 @@ body {
 }
 
 .glass {
-  position: relative;
-  z-index: 2;
   border-radius: 20px;
   margin: auto;
   display: grid;
